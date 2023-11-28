@@ -46,7 +46,7 @@ export default function Home() {
       <div>
         <Carousel onSearch={handleSearch} />
       </div>
-
+      <div className="container">
       <div className="container m-3">
         {foodCategories.length > 0
           ? foodCategories.map((category, index) => {
@@ -71,7 +71,7 @@ export default function Home() {
                           return (
                             <div
                               key={filterItem._id}
-                              className="col-12 col-md-6 col-lg-3"
+                              className="col-12 col-md-6 col-lg-4 col-xl-3"
                             >
                               <Card
                                 foodItem = {filterItem}
@@ -84,6 +84,7 @@ export default function Home() {
               );
             })
           : ""}
+      </div>
       </div>
       <div>
         <Footer />

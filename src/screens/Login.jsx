@@ -53,7 +53,7 @@ export default function Login() {
         <Form onSubmit={handleOnSubmit}>
           
 
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3 text-white fs-5" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
               onChange={handleOnChange}
@@ -62,12 +62,9 @@ export default function Login() {
               placeholder="Enter email"
               value={userCredentials.email}
             />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3 text-white fs-5" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
               onChange={handleOnChange}

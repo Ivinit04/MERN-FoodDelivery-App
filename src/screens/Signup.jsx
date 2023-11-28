@@ -53,7 +53,7 @@ export default function Signup() {
     <>
       <div className="container">
         <Form onSubmit={handleOnSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicName">
+          <Form.Group className="mb-3 text-white fs-5" controlId="formBasicName">
             <Form.Label>Name</Form.Label>
             <Form.Control
               onChange={handleOnChange}
@@ -64,7 +64,7 @@ export default function Signup() {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3 text-white fs-5" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
               onChange={handleOnChange}
@@ -73,12 +73,9 @@ export default function Signup() {
               placeholder="Enter email"
               value={userCredentials.email}
             />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Group className="mb-3 text-white fs-5" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
               onChange={handleOnChange}

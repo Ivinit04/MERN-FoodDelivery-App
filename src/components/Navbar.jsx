@@ -3,6 +3,8 @@ import { Link , useNavigate} from "react-router-dom";
 import Badge from "react-bootstrap/Badge";
 import Modal from "../screens/Modal";
 import Cart from "../screens/Cart";
+import Login from "../screens/Login";
+import Signup from "../screens/Signup";
 import { useCart } from "./ContextReducer";
 
 export default function Navbar() {
@@ -10,6 +12,8 @@ export default function Navbar() {
   let data = useCart();
 
   const [cartView , setCartView] = useState(false);
+  const [login ,  setLogin] = useState(false);
+  const [signup, setSignup] = useState(false);
 
   function handleLogout(){
     localStorage.removeItem("authToken");
@@ -50,17 +54,24 @@ export default function Navbar() {
             {!localStorage.getItem("authToken") ? (
               <div>
                 <Link
-                  className="btn bg-white text-success mx-1 my-1"
-                  to="/login"
-                >
+                  className="btn bg-white text-success mx-1 my-1" onClick={()=>{setLogin(true)}}>
                   Login
                 </Link>
+                {
+                  login ? <Modal  onClose={()=>{setLogin(false)}}>
+                    <Login />
+                  </Modal> : null
+                }
                 <Link
-                  className="btn bg-white text-success mx-1 my-1"
-                  to="/createuser"
+                  className="btn bg-white text-success mx-1 my-1" onClick={()=>{setSignup(true)}}
                 >
                   SignUp
                 </Link>
+                {
+                  signup ? <Modal  onClose={()=>{setSignup(false)}}>
+                    <Signup />
+                  </Modal> : null 
+                }
               </div>
             ) : (
               <div>

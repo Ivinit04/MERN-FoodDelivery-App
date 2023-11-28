@@ -66,6 +66,7 @@ app.use("/api", require("./Routes/CreateUser"));
 app.use("/api", require("./Routes/LoginUser"));
 app.use("/api", require("./Routes/DisplayData"));
 
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
