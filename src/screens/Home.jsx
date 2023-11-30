@@ -46,8 +46,8 @@ export default function Home() {
       <div>
         <Carousel onSearch={handleSearch} />
       </div>
-      <div className="container">
-      <div className="container m-3">
+      <div className="container" style={{maxWidth: "100%"}}>
+      <div className="container m-3" style={{maxWidth: "100%"}}>
         {foodCategories.length > 0
           ? foodCategories.map((category, index) => {
               return (
