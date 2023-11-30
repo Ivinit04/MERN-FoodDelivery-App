@@ -13,7 +13,7 @@ export default function Home() {
   // This useEffect will only run once right after the initial render of the component due to using an empty dependency array.
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.post("http://localhost:5000/api/food");
+      const response = await axios.post("https://mern-food-delivery-app-backend.vercel.app/api/food");
       const result = response.data;
       setFoodItems(result[0]);
       setFoodCategories(result[1]);

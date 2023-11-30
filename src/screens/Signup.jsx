@@ -18,7 +18,7 @@ export default function Signup() {
     event.preventDefault(); //prevent refreshing of page
     try {
       // The signup information is sent to the server using an Axios
-      const response = await axios.post("http://localhost:5000/api/createuser", {
+      const response = await axios.post("https://mern-food-delivery-app-backend.vercel.app/api/createuser", {
         name: userCredentials.name,
         email: userCredentials.email,
         password: userCredentials.password,

@@ -17,7 +17,7 @@ export default function Login() {
     event.preventDefault(); //prevent refreshing of page
 
     try {
-      const response = await axios.post("http://localhost:5000/api/loginuser", {
+      const response = await axios.post("https://mern-food-delivery-app-backend.vercel.app/api/loginuser", {
         email: userCredentials.email,
         password: userCredentials.password,
       });
