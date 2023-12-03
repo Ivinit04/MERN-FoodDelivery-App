@@ -1,5 +1,7 @@
 import React  from "react";
 import { useCart, useDispatchCart } from "../components/ContextReducer";
+import {loadStripe} from '@stripe/stripe-js';
+import axios from "axios";
 
 export default function Cart() {
   let data = useCart();
@@ -8,6 +10,24 @@ export default function Cart() {
     return total + item.price;
   }, 0); // 0 is initial value of total
 
+
+  async function makePayment(){
+    const stripe = await loadStripe("pk_test_51OImAWSDZJxlcAG1ePxStaYhXC8G2w8ZRh4284DdEtYQKFg7O9IpN9TpXgUkGNYpQeap5rN0r0rBwasdE1A9NjmW00s2bIWyYG");
+
+    const response = await axios.post("https://mern-food-delivery-app-backend.vercel.app/api/checkout", {
+        products:data
+      });
+
+    const session = response.data;
+
+    const result = stripe.redirectToCheckout({
+      sessionId:session.id
+    })
+
+    if((await result).error){
+      console.log(result.error);
+    }
+  }
 
   return data.length === 0 ? (
     <div className="ms-5 w-100 text-center text-white fs-3">
@@ -76,7 +96,7 @@ export default function Cart() {
           <h1 className="fs-2 text-white">Total Price : {totalPrice}/-</h1>
         </div>
         <div>
-          <button className="btn bg-success mt-5">Check Out</button>
+          <button className="btn bg-success mt-5" onClick={makePayment}>Check Out</button>
         </div>
       </div>
     </div>
