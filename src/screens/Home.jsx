@@ -15,6 +15,7 @@ export default function Home() {
     const fetchData = async () => {
       const response = await axios.post("https://mern-food-delivery-app-backend.vercel.app/api/food");
       const result = response.data;
+      console.log(result[1]);
       setFoodItems(result[0]);
       setFoodCategories(result[1]);
       //cannot log it inside a loadData function due to asynchronous nature of states, setFoodItems might not have been updated yet when you log the statement.
