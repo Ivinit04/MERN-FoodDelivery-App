@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.post("https://mern-food-delivery-app-backend.vercel.app/api/food");
-      const result = response.data;
+      const result = await response.data;
       console.log(result[1]);
       setFoodItems(result[0]);
       setFoodCategories(result[1]);
