@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 const uri =
-  "mongodb+srv://vinitjoshiofficial:Vinit_joshi04@cluster0.sp0xlhb.mongodb.net/goFoodMERN?retryWrites=true&w=majority";
+  "mongodb+srv://vinitjoshiofficial:Vinit_joshi04@cluster0.sp0xlhb.mongodb.net/goFoodMERN?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose.connect(uri);
 
@@ -56,10 +56,6 @@ db.once("open", () => {
     }).catch(err => {
       console.error("Error fetching data from 'food_categories' collection:", err);
     })
-});
-
-app.get("/", (req, res) => {
-  res.send("hello world");
 });
 
 app.use("/api", require("./Routes/CreateUser"));
